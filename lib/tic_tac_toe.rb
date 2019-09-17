@@ -62,7 +62,9 @@ class TicTacToe
 
     def won?
         WIN_COMBINATIONS.any? do | combination | 
-            if position_taken?(combination[0]) && @board[combination[0]] == @board[combination[1]] && @board[combination[1]] == @board[combination[2]]
+            if position_taken?(combination[0]) && 
+                @board[combination[0]] == @board[combination[1]] && 
+                @board[combination[1]] == @board[combination[2]]
                  return combination
             end
         end
@@ -88,9 +90,9 @@ class TicTacToe
 
     def play
         turn until over?
-        if won?
+        if winner
             puts "Congratulations #{winner}!"
-        elsif draw?
+        else
             puts "Cat's Game!"
         end
     end
