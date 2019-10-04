@@ -61,13 +61,16 @@ class TicTacToe
     end
 
     def won?
-        WIN_COMBINATIONS.any? do | combination | 
-            if position_taken?(combination[0]) && 
-                @board[combination[0]] == @board[combination[1]] && 
-                @board[combination[1]] == @board[combination[2]]
-                 return combination
+        winner = nil
+        WIN_COMBINATIONS.each do | combination | 
+            if combination.all? { |el| @board[el] == "X" }
+                winner = combo
+            elsif
+                if combination.all? { |el| @board[el] == "O" }
+                winner = combo
             end
         end
+        winner
     end
 
     def full?
