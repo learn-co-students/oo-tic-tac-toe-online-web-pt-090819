@@ -12,7 +12,7 @@ class TicTacToe
       ]
     def initialize
         @board = Array.new(9, " ")
-        
+
     end
 
     def display_board
@@ -50,7 +50,7 @@ class TicTacToe
     def turn
         puts "Please enter a number between 1-9"
         input = input_to_index(gets.chomp)
-        
+
         if valid_move?(input)
             player = current_player
             move(input, player)
@@ -62,12 +62,11 @@ class TicTacToe
 
     def won?
         winner = nil
-        WIN_COMBINATIONS.each do | combination | 
+        WIN_COMBINATIONS.each do | combination |
             if combination.all? { |el| @board[el] == "X" }
-                winner = combo
-            elsif
-                if combination.all? { |el| @board[el] == "O" }
-                winner = combo
+                winner = combination
+            elsif combination.all? { |el| @board[el] == "O" }
+                winner = combination
             end
         end
         winner
@@ -86,8 +85,8 @@ class TicTacToe
     end
 
     def winner
-        if player = won? 
-             @board[player[0]]        
+        if player = won?
+             @board[player[0]]
         end
     end
 
