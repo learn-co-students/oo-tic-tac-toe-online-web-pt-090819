@@ -128,3 +128,4 @@ game.current_player
 game.won?
 game.draw?
 game.winner
+game.play
